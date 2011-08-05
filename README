@@ -1,0 +1,1 @@
+This PHP script is designed to be run as a daily scheduled task (e.g. using cron). It downloads a list of Twitter followers for a given Twitter ID, and then compares the list against names stored in a MySQL database. If a follower isn't found on the list it will be update the database and display a message.
