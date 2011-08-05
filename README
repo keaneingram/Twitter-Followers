@@ -1,1 +1,3 @@
-This PHP script is designed to be run as a daily scheduled task (e.g. using cron). It downloads a list of Twitter followers for a given Twitter ID, and then compares the list against names stored in a MySQL database. If a follower isn't found on the list it will be update the database and display a message.
+This PHP script is designed to be run as a daily scheduled task (e.g. using cron). It downloads a list of Twitter followers for a given Twitter ID, and then compares the list against names stored in a MySQL database. If a follower isn't found on the list it will update the database and display a message.
+
+The createTable.sql file contains the required SQL table definition. The script isn't very robust - if it isn't possible to retrieve the Twitter followers for some reason then it will claim that no-one is following you and wipe the database - but rerunning the script when Twitter is back up will restore the database.
