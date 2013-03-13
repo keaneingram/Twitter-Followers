@@ -43,9 +43,10 @@
 	$newFollowers = array();
 	$userURL = "http://api.twitter.com/1/users/show/";
 
+	
 	foreach ($followers as $follower) {
 		//if this is a new follower, retrieve username details with another curl request and store in $newFollowers
-		if (is_null($oldFollowers[$follower])) {
+		if (array_key_exists($follower, $oldFollowers)) {
 			curl_setopt($curl, CURLOPT_URL, $userURL.$follower.".json");
 			$result = curl_exec($curl);
 			$followerDetails = json_decode($result);
@@ -54,8 +55,8 @@
 		//if we already know about this follower, just add to $newFollowers
 			$newFollowers[$follower] = array('screen_name'=>$oldFollowers[$follower]['screen_name'], 'username'=>$oldFollowers[$follower]['username']);
 		}
-	}
-	
+	}	
+		
 	foreach (array_keys($oldFollowers) as $oldFollower) {
 		//if old follower is no longer following, display message
 		if (is_null($newFollowers[$oldFollower])) { 
