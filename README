@@ -2,4 +2,4 @@ This PHP script is designed to be run as a daily scheduled task (e.g. using cron
 
 The createTable.sql file contains the required SQL table definition. The script isn't very robust - if it isn't possible to retrieve the Twitter followers for some reason then it will claim that no-one is following you and wipe the database - but rerunning the script when Twitter is back up will restore the database.
 
-I've updated the script to work with Twitter's API v1.1 - it makes use of the twitteroauth library which can be found at https://github.com/abraham/twitteroauth.
+I've updated the script to work with the latest version of Twitter's API. It makes use of the twitteroauth library which can be found at https://github.com/abraham/twitteroauth.
